@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 1: Introduction to Java Language - Frank's Computer Science Classroom</title>
+	<meta name="author" content="Frank Luan">
+
+  
+  <meta name="description" content="Java A high level Object-Oriented Programming Language High Level? Let&#8217;s first take a look at the lower levels&#8230; Machine Language [ op | &hellip;">
+  
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="robots" content="noindex,nofollow" />
+
+	<link rel="stylesheet" href="/stylesheets/reveal/reveal.min.css">
+	<link rel="stylesheet" href="/stylesheets/reveal/theme/default.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="/stylesheets/reveal/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write( '<link rel="stylesheet" href="/stylesheets/reveal/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="/javascripts/reveal/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+    <h1 style="text-transform: none;">Java</h1>
+    <p>A high level Object-Oriented Programming Language</p>
+</section>
+<section>
+    <section>
+        <h2>High Level?</h2>
+        <p>Let&#8217;s first take a look at the lower levels&#8230;</p>
+    </section>
+    <section>
+        <h2>Machine Language</h2>
+        <pre><code>
+    [  op  |  rs |  rt |  rd |shamt| funct]
+        0     1     2     6     0     32
+     000000 00001 00010 00110 00000 100000
+    [  op  |  rs |  rt | address/immediate]
+       35     3     8           68
+     100011 00011 01000 00000 00001 000100
+    [  op  |        target address        ]
+        2                 1024
+     000010 00000 00000 00000 10000 000000
+        </code></pre>
+    </section>
+    <section>
+        <h2>Assembly Language</h2>
+        <pre><code>
+    MOV AL, 1h        ; Load AL with immediate value 1
+    MOV CL, 2h        ; Load CL with immediate value 2
+    MOV DL, 61h       ; Load DL with immediate value 97
+    MOV EAX, [EBX]    ; Move the 4 bytes in EBX into EAX
+    MOV [ESI+EAX], CL ; Move the contents of CL into ESI+EAX
+            </code></pre>
+    </section>
+    <section>
+        <h2>Java</h2>
+        <pre><code class="java">
+    public class HelloWorld
+    {
+       public static void main(String[] args)
+       {
+           System.out.println("Hello, world!");
+       }
+    }
+        </code></pre>
+    </section>
+</section><!-- /section group -->
+
+<section>
+    <h2>Topic Outline</h2>
+    <ul>
+        <li>Packages and Classes</li>
+        <li>Input / Output</li>
+        <li>Variables</li>
+        <li>Operators</li>
+        <li>Control Structures</li>
+        <li>Erros and Exceptions</li>
+    </ul>
+</section>
+<section>
+    <h2>Package</h2>
+    <p>A Package is literally a package of pre-written Java codes that can be <i>imported</i> and reused.</p>
+    <p>Import a package like this:</p>
+    <pre><code class="java">
+import somepackage.*;
+import somepackage.subpackage.*;
+import somepackage.ClassName;
+    </code></pre>
+</section>
+<section>
+    <section>
+        <h2>Class</h2>
+        <p>A Java program must have at least one class, which must contain the <b>main</b> method.</p>
+        <pre><code class="java">
+    import package1.*;
+    public class MyFirstClass
+    {
+        public static void main(String[] args)
+        {
+            //Codes goes here
+        }
+    }
+        </code></pre>
+    </section>
+    <section>
+        <h3>A Few Concepts</h3>
+        <ol>
+            <li>Codes ⊂ Methods ⊂ Classes</li>
+            <li>The <code>main</code> method</li>
+            <li>Reserved words: <code>import, public, class, static, void</code></li>
+        </ol>
+    </section>
+</section>
+<section>
+    <h2>Hello, World!</h2>
+    <pre><code class="java">
+        /*
+         * Program: HelloWorld.java
+         * @author: Frank
+         */
+
+        public class HelloWorld  //← case-sensitive!
+        {
+           public static void main(String[] args)
+           {
+               System.out.println("Hello, world!");
+           }
+        }
+    </code></pre>
+</section>
+<section>
+    <h2>Input and Output (I/O)</h2>
+    <p>Java I/O is <b>not</b> part of the AP Test!</p>
+    <pre><code class="java">
+    /*
+      Output methods
+     */
+    System.out.print();
+    System.out.println();
+    </code></pre>
+</section>
+
+
+
+
+
+
+
+
+		</div>
+	</div><!-- /.reveal -->
+
+	<script src="/javascripts/reveal/head.min.js"></script>
+	<script src="/javascripts/reveal/reveal.min.js"></script>
+
+	<script>
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			overview: true,
+			center: true,
+			loop: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: '/javascripts/reveal/plugin/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/javascripts/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '/javascripts/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: '/javascripts/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				// { src: '/javascripts/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+	</script>
+
+</body>
+</html>
