@@ -1,4 +1,6 @@
-apcs
+APCS
 ====
 
-An Octopress Site for AP Computer Science A
+Live: http://ap.franklsf.org/
+
+An Octopress Site for AP Computer Science A.
